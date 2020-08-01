@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+}
+.weatherWrapper__header {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+.sunTime {
+  display: flex;
+  position: relative;
+  top: 40px;
+}
