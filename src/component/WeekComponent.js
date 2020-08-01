@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
 
-function WeekComponent() {
-    return (
-        <div>
-            iam WeekComponent
-        </div>
-    )
+function WeekComponent({ weather }) {
+  console.log(weather);
+  return <div></div>;
 }
 
-export default WeekComponent
+export default WeekComponent;
