@@ -1,5 +1,7 @@
 import React from "react";
-
+import Brightness1RoundedIcon from "@material-ui/icons/Brightness1Rounded";
+import Brightness3RoundedIcon from "@material-ui/icons/Brightness3Rounded";
+import { yellow } from "@material-ui/core/colors";
 function WeatherWrapperComponent({
   city,
   country,
@@ -21,10 +23,18 @@ function WeatherWrapperComponent({
       <div className="sunTime">
         <div className="sunriseTime">
           <img src="" alt="" className="sunRise" />
+          <Brightness1RoundedIcon
+            fontSize="large"
+            style={{ color: yellow[500] }}
+          />
           <p>{sunriseTime}</p>
         </div>
         <div className="sunsetTime">
           <img src="" alt="" className="sunSet" />
+          <Brightness3RoundedIcon
+            fontSize="large"
+            style={{ color: yellow[500] }}
+          />
           <p>{sunsetTime}</p>
         </div>
       </div>

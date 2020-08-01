@@ -10,4 +10,11 @@
   display: flex;
   position: relative;
   top: 40px;
+  justify-content: space-evenly;
+}
+.sunsetTime,
+.sunriseTime {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
