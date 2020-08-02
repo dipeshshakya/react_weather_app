@@ -15,7 +15,7 @@ function App() {
     //   effect;
     const getWeather = async () => {
       await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?q=nepal&units=imperial&APPID=${"ce844b724a6d3ebad7e0a8653133cf69"}`
+        `http://api.openweathermap.org/data/2.5/forecast?q=australia&units=imperial&APPID=${"ce844b724a6d3ebad7e0a8653133cf69"}`
       )
         .then((response) => response.json())
         .then((data) => {
