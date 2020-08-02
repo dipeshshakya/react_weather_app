@@ -1,6 +1,33 @@
 * {
   margin: 0;
 }
+.weatherWrapper {
+  display: block;
+  text-align: center;
+  padding: 30px;
+}
+.form__wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.city_txt {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 600;
+  width: 100%;
+}
+.sunTime {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.sunrise,
+.sunset {
+  padding: 10px;
+}
+
 .dayCard__wrapper {
   display: inline-block;
   padding: 20px;
