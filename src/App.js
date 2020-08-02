@@ -34,10 +34,11 @@ function App() {
   return (
     <div className="App">
       <WeatherWrapperComponent />
-
-      {DailyData.map((reading, index) => (
-        <DayCard reading={reading} key={index} />
-      ))}
+      <div className="dayCard-outerWrapper">
+        {DailyData.map((reading, index) => (
+          <DayCard reading={reading} key={index} />
+        ))}
+      </div>
     </div>
   );
 }

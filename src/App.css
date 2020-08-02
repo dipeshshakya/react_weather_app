@@ -11,3 +11,8 @@
 .daycard__card {
   align-content: center;
 }
+
+.dayCard-outerWrapper {
+  display: flex;
+  justify-content: center;
+}
