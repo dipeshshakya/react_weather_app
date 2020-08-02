@@ -4,8 +4,24 @@ import WeatherWrapperComponent from "./component/WeatherWrapperComponent";
 import DayCard from "./DayCard";
 import Paper from "@material-ui/core/Paper";
 import Input from "@material-ui/core/Input";
+import SearchIcon from "@material-ui/icons/Search";
+import IconButton from "@material-ui/core/IconButton";
+import InputBase from "@material-ui/core/InputBase";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+  },
+}));
 
 function App() {
+  const classes = useStyles();
+
   const [fullData, setfullData] = useState([]);
   const [DailyData, setDailyData] = useState([]);
   const [query, setQuery] = useState("australia");
@@ -50,16 +66,16 @@ function App() {
       <div className="form__wrapper">
         <Paper elevation={3}>
           <form action="" onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              name="city"
+            <InputBase
+              className={classes.input}
+              placeholder="Enter Location"
               onChange={handleChange}
-              style={{
-                margin: "0 auto",
-                maxWidth: 800,
-              }}
             />
-            <button type="submit">Go</button>
+
+            <IconButton type="submit">
+              <SearchIcon />
+            </IconButton>
+            {/* <button type="submit">Go</button> */}
           </form>
         </Paper>
       </div>
