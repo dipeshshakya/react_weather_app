@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import WeatherWrapperComponent from "./component/WeatherWrapperComponent";
+import DayCard from "./DayCard";
 // Api_key = "ce844b724a6d3ebad7e0a8653133cf69";
 // const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=11102&units=imperial&APPID=${Api_key}`;
 
 function App() {
-  const [weather, setWeather] = useState({});
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [sunrise, setSunrise] = useState("");
-  const [sunset, setSunset] = useState("");
-  const [weatherList, setweatherList] = useState({});
+  const [fullData, setfullData] = useState([]);
+  const [DailyData, setDailyData] = useState([]);
 
   const [Loading, setLoading] = useState(true);
 
@@ -18,34 +15,29 @@ function App() {
     //   effect;
     const getWeather = async () => {
       await fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?q=london&units=imperial&APPID=${"ce844b724a6d3ebad7e0a8653133cf69"}`
+        `http://api.openweathermap.org/data/2.5/forecast?q=nepal&units=imperial&APPID=${"ce844b724a6d3ebad7e0a8653133cf69"}`
       )
         .then((response) => response.json())
         .then((data) => {
-          setWeather(data);
-          setCity(data.city.name);
-          setCountry(data.city.country);
-          setSunrise(data.city.sunrise);
-          setSunset(data.city.sunset);
-          setweatherList(data.list);
+          const dailyData = data.list.filter((reading) =>
+            reading.dt_txt.includes("18:00:00")
+          );
+          setfullData(data.list);
+          setDailyData(dailyData);
         });
     };
     getWeather();
     setLoading(false);
   }, []);
+  console.log(DailyData);
 
   return (
     <div className="App">
-      {!Loading && (
-        <WeatherWrapperComponent
-          weather={weather}
-          city={city}
-          country={country}
-          sunrise={sunrise}
-          sunset={sunset}
-          weatherList={weatherList}
-        />
-      )}
+      <WeatherWrapperComponent />
+
+      {DailyData.map((reading, index) => (
+        <DayCard reading={reading} key={index} />
+      ))}
     </div>
   );
 }
