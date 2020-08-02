@@ -1,20 +1,10 @@
 * {
   margin: 0;
 }
-.weatherWrapper__header {
-  display: flex;
+.dayCard__wrapper {
+  display: inline-block;
+  padding: 20px;
   justify-content: center;
-  padding: 40px;
-}
-.sunTime {
-  display: flex;
-  position: relative;
-  top: 40px;
-  justify-content: space-evenly;
-}
-.sunsetTime,
-.sunriseTime {
-  display: flex;
   align-items: center;
-  flex-direction: column;
+  margin: 0 auto;
 }
