@@ -26,6 +26,7 @@ function App() {
   const [DailyData, setDailyData] = useState([]);
   const [query, setQuery] = useState("australia");
   const [formValues, setFormValues] = useState({});
+  const [errors, setErrors] = useState("");
 
   // const [Loading, setLoading] = useState(true);
 
@@ -42,12 +43,14 @@ function App() {
           );
           setfullData(data.city);
           setDailyData(dailyData);
-        });
+        })
+        .catch((error) => setErrors(error));
     };
     getWeather();
     // setLoading(false);
   }, [query]);
-  console.log(fullData);
+
+  console.log(errors);
   const handleChange = (event) => {
     // let name = event.target.name;
     let value = event.target.value;
